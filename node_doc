@@ -1,0 +1,109 @@
+【安装依赖包】：
+sudo apt-get install g++ curl libssl-dev apache2-utils（基本上现在的linux发行版本都带g++，以及g++的curl库） 
+sudo apt-get install git-core（确保你的机器能使用git）
+
+【安装】：
+第一种方法
+sudo apt-get update
+sudo apt-get install nodejs
+sudo apt-get remove nodejs
+
+nodejs -v 而不是node -v,使用node的命令就是nodejs，而不是node
+
+第二种方法
+官网下载source code文件到本地
+cd node （进入到下载后解压的目录下）
+./configure
+make   
+sudo make install
+sudo cp /usr/local/bin/node /usr/sbin/
+建议此方法，这样的node -v  npm -v都有
+
+sudo npm install express -g
+【安装express成功】
+express@4.13.3 /usr/local/lib/node_modules/express
+├── escape-html@1.0.2
+├── merge-descriptors@1.0.0
+├── array-flatten@1.1.1
+├── cookie@0.1.3
+├── utils-merge@1.0.0
+├── cookie-signature@1.0.6
+├── methods@1.1.1
+├── fresh@0.3.0
+├── range-parser@1.0.2
+├── vary@1.0.1
+├── path-to-regexp@0.1.7
+├── content-type@1.0.1
+├── etag@1.7.0
+├── parseurl@1.3.0
+├── serve-static@1.10.0
+├── content-disposition@0.5.0
+├── depd@1.0.1
+├── qs@4.0.0
+├── on-finished@2.3.0 (ee-first@1.1.1)
+├── debug@2.2.0 (ms@0.7.1)
+├── finalhandler@0.4.0 (unpipe@1.0.0)
+├── proxy-addr@1.0.8 (forwarded@0.1.0, ipaddr.js@1.0.1)
+├── accepts@1.2.13 (negotiator@0.5.3, mime-types@2.1.6)
+├── type-is@1.6.8 (media-typer@0.3.0, mime-types@2.1.6)
+└── send@0.13.0 (destroy@1.0.3, statuses@1.2.1, ms@0.7.1, mime@1.3.4, http-errors@1.3.1)
+
+sudo apt-get install node_express
+
+
+第三种方法
+cd node-v0.10.28-linux-x64/bin
+
+./node -v
+
+然后设置全局：
+ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/node /usr/local/bin/node
+ln -s /home/kun/mysofltware/node-v0.10.28-linux-x64/bin/npm /usr/local/bin/npm
+
+这里/home/kun/mysofltware/这个路径是你自己放的，你将node文件解压到哪里就是哪里。
+
+
+【第一个helloworld nodejs程序】：
+hello.js
+var http = require('http');  //全局方法require()是用来导入模块的,require("http") 就是加载系统预置的 http 模块
+http.createServer(function (req,res){ //调用http模块的createServer方法
+	res.writeHead(200,{'Content-Type': 'text/plain'});
+	res.end('hello world\n');
+}).listen(1337, "127.0.0.1");  //http的listen方法可以让该http服务器在特定端口监听
+console.log('Server running at http:127.0.0.1:137/');
+
+【变量和方法】：
+var name = "Darren";  //私有属性
+this.location = "Beijing";  //公有属性
+this.showLog = function(){  //公有方法
+    console.log('Hi Darren.')
+};
+
+私有方法我们在模块以外是取不到的，所以是undefined。共有属性和共有方法的声明需要在前面加上 this 关键字
+
+
+【node核心思想】
+1.单线程 2.非阻塞 3.事件驱动
+
+
+
+【express工程】
+1.express -e nodejs_demo
+   create : nodejs_demo
+   create : nodejs_demo/package.json
+   create : nodejs_demo/app.js
+   create : nodejs_demo/public
+   create : nodejs_demo/public/javascripts
+   create : nodejs_demo/public/images
+   create : nodejs_demo/public/stylesheets
+   create : nodejs_demo/public/stylesheets/style.css
+   create : nodejs_demo/routes
+   create : nodejs_demo/routes/index.js
+   create : nodejs_demo/views
+   create : nodejs_demo/views/layout.jade
+   create : nodejs_demo/views/index.jade
+
+   dont forget to install dependencies:   //提示不要忘记安装依赖
+   $ cd nodejs_demo && npm install
+2.cd nodejs_demo
+3.npm install  
