@@ -20,6 +20,7 @@ sudo cp /usr/local/bin/node /usr/sbin/
 建议此方法，这样的node -v  npm -v都有
 
 sudo npm install express -g
+npm install -g express-generator
 【安装express成功】
 express@4.13.3 /usr/local/lib/node_modules/express
 ├── escape-html@1.0.2
