@@ -6,5 +6,5 @@ function upload(){
 	console.log("request handler 'upload' was called.");
 }
 
-exports.start = start;
+exports.start = start;  //模块像外提供start方法
 exports.upload = upload;
